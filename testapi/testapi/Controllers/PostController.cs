@@ -20,12 +20,6 @@ namespace testapi.Controllers
                 string responseBody = await response.Content.ReadAsStringAsync();
 
                 Posts? data = JsonSerializer.Deserialize<Posts>(responseBody);
-
-                if (data != null)
-                {
-                    data.posts = data.posts?.OrderBy(x => x.id).ToList();
-                }
-
                 return Ok(data);
             }
             catch (Exception ex)

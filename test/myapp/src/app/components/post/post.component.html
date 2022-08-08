@@ -1,0 +1,33 @@
+<div class="row">
+  <h1>Posts</h1>
+  <form [formGroup]="form">
+    <input
+      class="form-control"
+      type="text"
+      formControlName="search"
+      placeholder="Search"
+    />
+    <button class="btn btn-success" (click)="fetch()" [disabled]="!form.valid">
+      Enviar
+    </button>
+  </form>
+</div>
+
+<div class="row">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nome</th>
+        <th>Sobrenome</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let post of data">
+        <td>{{ post.id }}</td>
+        <td>{{ post.author }}</td>
+        <td>{{ post.authorId }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
